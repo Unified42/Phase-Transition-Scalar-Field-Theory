@@ -1,0 +1,162 @@
+# Phase Transition Scalar Field Theory — Validation Codes
+# 相变标量场论 — 验证代码库
+[English](#english) | [中文](#chinese)
+---
+## English
+### Overview
+All validation scripts for the **Phase Transition Scalar Field Theory (相变标量场论)**. All codes run on standard personal computers within seconds to minutes. All results in the main paper and supplementary material are fully reproducible with these scripts.
+
+### Citation
+> Tong, J. (2026). *Phase Transition Scalar Field Theory: A Classical Gravity Theory Based on Scalar Field Phase Transition*. Phys. Rev. Lett. (submitted)
+> 
+> Preprint: https://doi.org/10.5281/zenodo.20527069
+> 
+> BibTeX in `citation.bib`.
+
+### Requirements
+Python 3.10+. Install all dependencies with:
+```bash
+pip install numpy scipy matplotlib camb glob2
+```
+All dependencies are standard scientific computing libraries, no proprietary software required.
+
+### Data Sources (NOT included — download separately)
+| File | Source |
+|------|--------|
+| `SPARC_Lelli_2016_data.txt` | [SPARC Database](http://astroweb.case.edu/SPARC/) → Newtonian Mass Models → Full Dataset Zip |
+| `Table1.mrt` | [SPARC Database](http://astroweb.case.edu/SPARC/) → Galaxy Sample: Table1.mrt |
+| `Sparc_Radial_Acceleration_Relation.mrt` | [SPARC Database](http://astroweb.case.edu/SPARC/) → Radial Acceleration Relation: All Data |
+| `COM_PowerSpect_CMB-TT-full_R3.01.txt` | [Planck Legacy Archive](https://pla.esac.esa.int/pla/#cosmology) → CMB → Power Spectra → TT Full R3.01 |
+| `PantheonPlusSH0ES.dat` & `.cov` | [Pantheon+ GitHub](https://github.com/PantheonPlusSH0ES/DataRelease) |
+| `GW170817_GWTC-1.hdf5` | [LIGO DCC](https://dcc.ligo.org/public/0157/P1800370/005/GW170817_GWTC-1.hdf5) |
+| `H-H1 / L-L1 / V-V1 ... .hdf5` | [GWOSC GW170817](https://gwosc.org/events/GW170817/) → 16384 Hz Strain Data |
+
+### Scripts
+#### Galaxy Scale (星系尺度)
+- `pure_field_phase.py`: Single galaxy rotation curve fitting with pure phase-field model
+- `batch_universal_test.py`: Batch universal test on all 175 SPARC disk galaxies
+- `plot_pr_standard.py`: Generate PR-journal standard rotation curve plots
+- `rar_validation.py`: Radial Acceleration Relation (RAR) validation
+- `rar_by_type.py`: RAR analysis by galaxy morphological type
+- `deep_mond_test.py`: Head-to-head comparison with MOND models
+- `single_galaxy_fit.py`: Single galaxy fitting with alternative profiles
+- `mcmc_single_galaxy_fit.py`: MCMC parameter estimation for single galaxies
+- `phase_nu_fit.py`: Phase-field model with neutrino contribution
+- `phase_nu_profile.py`: Phase-field density profile calculation
+
+#### Field Equation & Potential Solver (场方程与势函数求解)
+- `Field_Closure.py`: Numerical solution of static spherically symmetric field equation, stable profile verification
+- `stellar_test.py`: Stellar scale potential validation, critical stellar mass calculation (0.35 M☉)
+
+#### CMB (宇宙微波背景)
+- `cmb_full_comparison.py`: Full CMB TT/EE/TE power spectrum calculation vs Planck 2018
+- `derive_duty_cycle.py`: Duty cycle factor derivation, cosmic dark matter density calculation
+- `derive_primordial.py`: Primordial power spectrum parameters (ns, As, r) derivation
+- `cmb_lensed_test.py`: Lensed CMB power spectrum validation
+
+#### Cosmology (宇宙学)
+- `background_evolution.py`: Cosmic background evolution H(z) and Type Ia supernova Hubble diagram
+- `sn_validation.py`: Pantheon+ supernova dataset validation
+- `hubble_tension_solution.py`: Hubble tension quantification and resolution
+- `cosmic_age.py`: Cosmic age calculation
+- `cosmic_phase_transition.py`: Cosmic phase transition history simulation
+
+#### Other (其他)
+- `gw_dispersion_test.py`: Gravitational wave dispersion effect prediction
+- `gw_phase_MDR.py`: Modified dispersion relation for gravitational waves
+- `cluster_mass_test.py`: Galaxy cluster mass profile validation
+
+#### Solar System (太阳系)
+- `mercury_perihelion.py`: Mercury perihelion precession calculation
+- `shapiro_delay.py`: Shapiro time delay calculation
+- `light_deflection.py`: Gravitational light deflection calculation
+
+### Reproducibility
+All figures and tables in the main paper and supplementary material can be exactly reproduced by running the corresponding scripts:
+- Main paper Fig.1: `plot_pr_standard.py`
+- Main paper Fig.2: `cmb_full_comparison.py`
+- Supplementary Fig.S1: `background_evolution.py`
+- All galaxy fitting results: `batch_universal_test.py`
+
+### License
+MIT. Contact: shield39@163.com
+
+---
+## 中文
+### 概述
+本仓库包含**相变标量场论**的全部验证代码，均可在标准个人电脑上于数秒至数分钟内运行。主文与补充材料中的所有结果均可通过本代码库完全复现。
+
+### 引用
+> 童佳 (2026). *相变标量场论：基于标量场相变机制的经典引力理论*. 物理评论快报(投稿中)
+> 
+> 预印本：https://doi.org/10.5281/zenodo.20527069
+> 
+> BibTeX 见 `citation.bib`。
+
+### 环境
+Python 3.10+，运行以下命令安装全部依赖：
+```bash
+pip install numpy scipy matplotlib camb glob2
+```
+所有依赖均为标准科学计算库，无需任何专有软件。
+
+### 数据来源（需自行下载，本仓库不含原始数据）
+| 文件 | 来源 |
+|------|------|
+| `SPARC_Lelli_2016_data.txt` | [SPARC数据库](http://astroweb.case.edu/SPARC/) → Newtonian Mass Models → 完整数据集压缩包 |
+| `Table1.mrt` | [SPARC数据库](http://astroweb.case.edu/SPARC/) → Galaxy Sample: Table1.mrt |
+| `Sparc_Radial_Acceleration_Relation.mrt` | [SPARC数据库](http://astroweb.case.edu/SPARC/) → Radial Acceleration Relation: 全部数据 |
+| `COM_PowerSpect_CMB-TT-full_R3.01.txt` | [Planck遗产档案](https://pla.esac.esa.int/pla/#cosmology) → CMB → 功率谱 → TT Full R3.01 |
+| `PantheonPlusSH0ES.dat` 及 `.cov` | [Pantheon+ GitHub](https://github.com/PantheonPlusSH0ES/DataRelease) |
+| `GW170817_GWTC-1.hdf5` | [LIGO数据中心](https://dcc.ligo.org/public/0157/P1800370/005/GW170817_GWTC-1.hdf5) |
+| `H-H1 / L-L1 / V-V1 ... .hdf5` | [GWOSC GW170817](https://gwosc.org/events/GW170817/) → 16384 Hz 应变数据 |
+
+### 脚本说明
+#### 星系尺度
+- `pure_field_phase.py`: 单星系纯相位场模型旋转曲线拟合
+- `batch_universal_test.py`: 175个SPARC盘星系批量普适性检验
+- `plot_pr_standard.py`: 生成PR期刊标准格式的旋转曲线图
+- `rar_validation.py`: 径向加速度关系(RAR)验证
+- `rar_by_type.py`: 按星系形态类型分类的RAR分析
+- `deep_mond_test.py`: 与MOND模型的直接对比测试
+- `single_galaxy_fit.py`: 单星系替代剖面拟合
+- `mcmc_single_galaxy_fit.py`: 单星系MCMC参数估计
+- `phase_nu_fit.py`: 包含中微子贡献的相位场模型
+- `phase_nu_profile.py`: 相位场密度剖面计算
+
+#### 场方程与势函数求解
+- `Field_Closure.py`: 静态球对称场方程数值求解与稳定剖面验证
+- `stellar_test.py`: 恒星尺度势函数验证，临界恒星质量(0.35 M☉)计算
+
+#### 宇宙微波背景(CMB)
+- `cmb_full_comparison.py`: CMB TT/EE/TE全谱计算与Planck 2018对比
+- `derive_duty_cycle.py`: 占空比因子推导，宇宙平均暗物质密度计算
+- `derive_primordial.py`: 原初功率谱参数(ns, As, r)推导
+- `cmb_lensed_test.py`: 透镜CMB功率谱验证
+
+#### 宇宙学
+- `background_evolution.py`: 宇宙背景演化H(z)与Ia型超新星哈勃图
+- `sn_validation.py`: Pantheon+超新星数据集验证
+- `hubble_tension_solution.py`: 哈勃张力量化与解决
+- `cosmic_age.py`: 宇宙年龄计算
+- `cosmic_phase_transition.py`: 宇宙相变历史模拟
+
+#### 其他
+- `gw_dispersion_test.py`: 引力波色散效应预言
+- `gw_phase_MDR.py`: 引力波修正色散关系
+- `cluster_mass_test.py`: 星系团质量剖面验证
+
+#### 太阳系
+- `mercury_perihelion.py`: 水星近日点进动计算
+- `shapiro_delay.py`: 夏皮罗时间延迟计算
+- `light_deflection.py`: 引力光线偏折计算
+
+### 可重复性说明
+主文与补充材料中的所有图表和数据均可通过运行对应脚本精确复现：
+- 主文图1：`plot_pr_standard.py`
+- 主文图2：`cmb_full_comparison.py`
+- 补充材料图S1：`background_evolution.py`
+- 全部星系拟合结果：`batch_universal_test.py`
+
+### 协议
+MIT。联系邮箱：shield39@163.com
